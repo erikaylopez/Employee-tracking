@@ -30,3 +30,11 @@ CREATE TABLE employee (
     REFERENCES employee(id)
     ON DELETE SET NULL
 );
+
+CREATE TABLE manager_id
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    manager_id INTEGER,
+    FOREIGN KEY (manager_id)
+    REFERENCES employee(id)
+    ON DELETE SET NULL

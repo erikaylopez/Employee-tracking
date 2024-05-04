@@ -5,10 +5,10 @@ const inquirer = require('inquirer');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-let employees = [];
-let roles = [];
+let employee = [];
+let role = [];
 let managers = [];
-let departments = [];
+let department = [];
 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
@@ -21,7 +21,7 @@ const pool = new Pool({
   // TODO: Enter PostgreSQL password
   password: 'Erika#1009',
   host: 'localhost',
-  database: 'employees_db'
+  database: 'employee_db'
 });
 
 pool.connect();
@@ -91,7 +91,9 @@ function viewDepartments() {
 function addDepartment() {
     inquirer
         .prompt({
-
+            type: 'input',
+            message: 'What is the name of the department?',
+            name: 'departmentName'
         })
 
 }
@@ -110,9 +112,9 @@ function addRole() {
             .prompt([
                 {
                     type: 'input',
-                    message: 'What is the title of the role?',
-                    name: 'title'
-                },
+                    message: 'What is the name of the department?',
+                    name: 'departmentName'
+                }
                 {
                     type: 'input',
                     message: 'What is the salary of the role?',

@@ -5,22 +5,34 @@ VALUES
     ('Legal'),
     ('Sales')
 
-INSERT INTO role (title, salary, department_id)
+INSERT INTO roles (title, salary)
 VALUES
-    ('Sales Lead', 60000, 4),
-    ('Salesperson', 45000, 4),
-    ('Lead Engineer', 80000, 1),
-    ('Software Engineer', 60000, 1),
-    ('Accountant', 70000, 2),
-    ('Legal Team Lead', 75000, 3),
-    ('Lawyer', 70000, 3)
+    ('Sales Lead', 60000)
+    ('Salesperson', 45000)
+    ('Lead Engineer', 80000)
+    ('Software Engineer', 60000)
+    ('Accountant', 70000)
+    ('Legal Team Lead', 75000)
+    ('Lawyer', 70000)
  
- INSERT INTO employee (first_name, last_name, role_id, manager_id)
+ INSERT INTO employee (first_name, last_name, employee_id,)
 VALUES
-    ('Luis', 'Lopez', 3),
-    ('John', 'Doe', 1, 1),
-    ('Jane', 'Doe', 2, 1),
-    ('Alice', 'Johnson', 4, 3),
-    ('Bob', 'Smith', 5, 3),
-    ('Karen', 'Williams', 6, 3),
-    ('Kattie', 'Smith', 7, 3)
+    ('Luis', 'Lopez', 1)
+    ('John', 'Doe', 2 )
+    ('Jane', 'Doe', 3)
+    ('Alice', 'Johnson', 4)
+    ('Bob', 'Smith', 5)
+    ('Karen', 'Williams', 6)
+    ('Kattie', 'Smith', 7)
+
+    INSERT INTO manager (first_name, last_name)
+VALUES
+    ('Samantha Carpenter'),
+    ('Fernando Olivas'),
+    ('Jackie Stone'),
+    ('Mark Roberts')
+    ('Julie Daniels'),
+    ('Iris Bill'),
+    ('Sam Torres')
+
+

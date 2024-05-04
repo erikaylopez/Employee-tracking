@@ -2,17 +2,6 @@ const express = require('express');
 const { Pool } = require('pg');
 const inquirer = require('inquirer');
 
-const PORT = process.env.PORT || 3001;
-const app = express();
-
-let employee = [];
-let role = [];
-let managers = [];
-let department = [];
-
-// Express middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 // Connect to database
 const pool = new Pool({
@@ -21,6 +10,7 @@ const pool = new Pool({
   // TODO: Enter PostgreSQL password
   password: 'Erika#1009',
   host: 'localhost',
+  port: 5432,
   database: 'employee_db'
 });
 
@@ -34,13 +24,13 @@ pool.query('SELECT SUM(quantity) AS total_in_section, MAX(quantity) AS max_quant
   console.log(rows);
 });
 
-app.use((req, res) => {
-  res.status(404).end();
-});
+// // app.use((req, res) => {
+// //   res.status(404).end();
+// // });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
 
 
 function run() {
@@ -114,7 +104,7 @@ function addRole() {
                     type: 'input',
                     message: 'What is the name of the department?',
                     name: 'departmentName'
-                }
+                },
                 {
                     type: 'input',
                     message: 'What is the salary of the role?',

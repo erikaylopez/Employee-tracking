@@ -16,20 +16,25 @@ const pool = new Pool({
 
 pool.connect();
 
-pool.query('SELECT COUNT(id) AS total_count FROM favorite_books GROUP BY in_stock', function ({rows}) {
-  console.log(rows);
-});
+pool.query('SELECT * FROM department', (err, res) => {
+    if (err) throw err;
+    console.log(res.rows);
+    });
+pool.query('SELECT * FROM role', (err, res) => {
+    if (err) throw err;
+    console.log(res.rows);
+    });
+pool.query('SELECT * FROM employee', (err, res) => {
+    if (err) throw err;
+    console.log(res.rows);
+    });
 
-pool.query('SELECT SUM(quantity) AS total_in_section, MAX(quantity) AS max_quantity, MIN(quantity) AS min_quantity, AVG(quantity) AS avg_quantity FROM favorite_books GROUP BY section', function ({rows}) {
-  console.log(rows);
-});
-
-// // app.use((req, res) => {
-// //   res.status(404).end();
-// // });
+// app.use((req, res) => { 
+//     res.status(404).end()       
+// });
 
 // app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
+// console.log(`Server running on port ${PORT}`);
 // });
 
 

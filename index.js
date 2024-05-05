@@ -14,30 +14,6 @@ const pool = new Pool({
   database: 'employee_db'
 });
 
-//pool.connect();
-
-// pool.query('SELECT * FROM department', (err, res) => {
-//     if (err) throw err;
-//     console.log(res.rows);
-//     });
-// pool.query('SELECT * FROM role', (err, res) => {
-//     if (err) throw err;
-//     console.log(res.rows);
-//     });
-// pool.query('SELECT * FROM employee', (err, res) => {
-//     if (err) throw err;
-//     console.log(res.rows);
-//     });
-
-// app.use((req, res) => { 
-//     res.status(404).end()       
-// });
-
-// app.listen(PORT, () => {
-// console.log(`Server running on port ${PORT}`);
-// });
-
-
 function run() {
     inquirer
         .prompt({

@@ -1,8 +1,8 @@
-DROP DATABASE employees_db;
+DROP DATABASE employees;
 
-CREATE DATABASE employees_db;
+CREATE DATABASE employees;
 
-\c employees_db
+\c employees;
 
 
 CREATE TABLE department (

@@ -6,7 +6,7 @@ const inquirer = require('inquirer');
 // Connect to database
 const pool = new Pool({
   // TODO: Enter PostgreSQL username
-  user: 'erikaylopez',
+  user: 'postgres',
   // TODO: Enter PostgreSQL password
   password: 'Erika#1009',
   host: 'localhost',
@@ -14,20 +14,20 @@ const pool = new Pool({
   database: 'employee_db'
 });
 
-pool.connect();
+//pool.connect();
 
-pool.query('SELECT * FROM department', (err, res) => {
-    if (err) throw err;
-    console.log(res.rows);
-    });
-pool.query('SELECT * FROM role', (err, res) => {
-    if (err) throw err;
-    console.log(res.rows);
-    });
-pool.query('SELECT * FROM employee', (err, res) => {
-    if (err) throw err;
-    console.log(res.rows);
-    });
+// pool.query('SELECT * FROM department', (err, res) => {
+//     if (err) throw err;
+//     console.log(res.rows);
+//     });
+// pool.query('SELECT * FROM role', (err, res) => {
+//     if (err) throw err;
+//     console.log(res.rows);
+//     });
+// pool.query('SELECT * FROM employee', (err, res) => {
+//     if (err) throw err;
+//     console.log(res.rows);
+//     });
 
 // app.use((req, res) => { 
 //     res.status(404).end()       
@@ -77,8 +77,11 @@ function run() {
 }
 
 function viewDepartments() {
-    pool.query('SELECT name FROM department', async function(err, { rows }) {
-        console.table(rows);
+    pool.query('SELECT name FROM department',function(err, rows) {
+        if(err){
+            throw err;
+        }
+        console.log(rows);
         return run();
     });
 }
@@ -94,7 +97,7 @@ function addDepartment() {
 }
 
 function viewRoles() {
-    pool.query('SELECT title, salary, department_id FROM role', async function(err, { rows }) {
+    pool.query('SELECT title, salary, department_id FROM role', function(err, { rows }) {
         console.table(rows);
         return run();
     });

@@ -1,15 +1,17 @@
-DROP DATABASE IF EXISTS employee_DB;
-CREATE database employee_DB;
+DROP DATABASE employees_db;
 
-USE employee_DB;
+CREATE DATABASE employees_db;
+
+\c employees_db
+
 
 CREATE TABLE department (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE role (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL(20, 2) NULL,
   department_id INT NOT NULL,
@@ -19,16 +21,16 @@ CREATE TABLE role (
 );
 
 CREATE TABLE employee (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
-  role_id INT NOT NULL,
-  manager_id INT NULL,
+  role_id INTEGER,
   FOREIGN KEY (role_id)
         REFERENCES role(id)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
+        ON DELETE CASCADE,
+manager_id INTEGER,
   FOREIGN KEY (manager_id)
         REFERENCES employee(id)
-        ON DELETE SET NULL 
+        ON DELETE CASCADE   
  
 );

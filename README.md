@@ -34,3 +34,6 @@ License ©
 Licensed under the MIT license. Copyright @ MIT. All rights reserved.
 
 # Screenshot
+![Screenshot](./Assets/erikaylopez.github.io_Employee-tracking_.png)
+![Screenshot](./Assets/terminal.png)
+
